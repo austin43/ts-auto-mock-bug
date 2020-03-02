@@ -1,9 +1,18 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import { createMock } from "ts-auto-mock";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+interface Interface {
+  a: string;
+  b: number;
+}
+
+describe("a mock that", () => {
+  let mock: Interface;
+
+  beforeEach(() => {
+    mock = createMock<Interface>();
+  });
+
+  it("should work", () => {
+    expect(mock.a).toBe("");
+  });
 });
